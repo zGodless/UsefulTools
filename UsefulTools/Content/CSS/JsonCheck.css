@@ -1,0 +1,30 @@
+﻿body {
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
+#check {
+    float: left;
+    height: 80%;
+    width: 20%;
+    text-align: center;
+    line-height: 60px;
+}
+
+.checkButton {
+    width: 80px;
+}
+
+.title {
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    height: 40px;
+    width: 100%;
+}

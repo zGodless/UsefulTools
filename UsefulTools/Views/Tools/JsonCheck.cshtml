@@ -1,0 +1,47 @@
+﻿
+<link href="~/Content/CSS/JsonCheck.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "JsonCheck";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>JsonCheck</h2>
+<div id="source" style="float: left; height: 80%; width: 40%;">
+    <div class="title">Source</div>
+    <textarea rows="3" cols="20">
+    </textarea>
+</div>
+<div id="check">
+    <div style="height: 40%; width: 100%"></div>
+    <div style="height: 20%; width: 100%">
+        <button class="checkButton" onclick="JsonCheck()">
+            Check
+        </button>
+    </div>
+    <div style="height: 40%; width: 100%"></div>
+</div>
+
+<div id="result" style="float: right; height: 80%; width: 40%;">
+    <div class="title">Result</div>
+    <textarea rows="3" cols="20">
+    </textarea>
+</div>
+
+
+<script>
+    function JsonCheck() {
+        var sourceStr = $("#source").children("textarea").val();
+
+        $.ajax({
+            url: '/Tools/Check?jsonStr=' + sourceStr,
+            type: 'POST',
+            dataType: 'json',
+            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+            success: function (rntData) {
+                $("#result").children("textarea").val(rntData);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    }
+</script>
